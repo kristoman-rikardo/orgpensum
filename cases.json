@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Sjefen som ville rydde opp",
+    "text": "En entreprenørbedrift på 80 ansatte har fått ny COO fra et stort konsern. Hun har innført ukentlige rapporteringsmøter og formelle prosessbeskrivelser. Tre av seks teamledere har sagt opp på tre måneder, og de gjenværende sier \"det tar dobbelt så lang tid å få noe gjort nå\".",
+    "expected": ["Mintzberg", "Jacobsen & Vabo", "Schein", "Hackman & Oldham", "Cherns"],
+    "diagnosis": "Konfigurasjonsovergang fra simple structure mot byråkrati ved skalering — men formaliseringen er tredd ned over hodet på en organisasjon hvor den uformelle kulturen var koordineringsmekanismen. Autonomien teamlederne hadde, blir degradert (jobbkarakteristikker svekkes). Selve omstruktureringen burde fulgt kompatibilitetsprinsippet (deltakende prosess)."
+  },
+  {
+    "title": "Pakkesentralen",
+    "text": "En logistikksentral har innført sanntids-tracking av antall pakker per ansatt. Produktiviteten er opp 8 %. Sykefraværet er stabilt. Men kundeklager om feilsendte pakker er opp 15 %, og fire av de mest erfarne lagerarbeiderne har sluttet.",
+    "expected": ["Smith & Bititci", "Goodhart", "Korsen", "Holemo & Ingvaldsen", "Hackman & Oldham"],
+    "diagnosis": "Klassisk Goodhart-mønster: når tellbar pakkemengde blir det målet som styrer atferd, kommer kvaliteten under press. Målesystemet er bureaucratic control (Korsen), ikke collaborative. Det signaliserer mistillit, fragmenterer arbeidet og degraderer jobbkarakteristikkene som drev erfaringsbasert kvalitetsarbeid."
+  },
+  {
+    "title": "Reklamebyrået",
+    "text": "Et reklamebyrå med 60 ansatte har 15 samtidige kundeprosjekter. Kreatørene jobber typisk på 3-4 prosjekter parallelt. To senior-kreatører har sluttet, kvaliteten varierer, og en stor kunde har gått til konkurrenten.",
+    "expected": ["Maylor & Turner", "J&V (3.5.4)", "Thompson", "J&V (3.5.6)", "Karasek"],
+    "diagnosis": "Prosjektkaos i matriseaktig struktur uten tydelige spilleregler. Innen et kreativt prosjekt er avhengigheten gjensidig (resiprokal — Thompson), mellom prosjekter er det delt ressursutnyttelse. Dagens hybrid håndterer ingen av dem godt. Kreatørene står i job strain (Karasek): høye krav fra mange ledere, lav kontroll over egen prioritering."
+  },
+  {
+    "title": "Skolesammenslåingen",
+    "text": "To naboskoler er fusjonert. Etter ni måneder er det fortsatt to leirer i kollegiet — alle vet hvilket lunsjbord som tilhører \"gamle Bjørka\" og hvilket som tilhører \"gamle Lindeskolen\". Rektor har innført fellesmøter hver fredag og felles e-postliste. To lærere har søkt seg vekk.",
+    "expected": ["Schein", "J&V (3.6.1)", "J&V (3.6.2)", "Forelesning Finnestrand", "Mintzbergs std. av normer"],
+    "diagnosis": "Rektors tiltak (fellesmøter, e-postliste) er lag 1- og lag 2-grep som ikke når lag 3 (grunnleggende antagelser). Subkulturer er institusjonalisert — \"vi\" og \"dem\" er stabilisert. Kultur bygges ikke ved dekret, men gjennom delt problemløsning og strukturert sosialisering over tid."
+  },
+  {
+    "title": "Hjemmehjelpsruten",
+    "text": "En kommunes hjemmehjelpstjeneste har innført AI-basert ruteoptimalisering. Total kjøretid er ned 18 %. Men de ansatte sier \"vi har ikke tid til å snakke med brukerne lenger\", klager fra pårørende har økt, og to ansatte har sluttet med begrunnelsen \"det er ikke det jeg utdannet meg til\".",
+    "expected": ["Phronesis", "Holemo & Ingvaldsen", "Fleming", "Cherns", "Goodhart", "Hackman & Oldham"],
+    "diagnosis": "Optimalisering av techne (kjøretid, ruteberegning) på bekostning av phronesis (kontekstuell omsorgsklokskap). Klassisk brudd på joint optimisation: det tekniske systemet er optimalisert, det sosiale er degradert. Goodhart i praksis — kjøretid måles, omsorgsrelasjon ikke. AI er erstattende, ikke støttende, fordi den fortrenger phronesis."
+  },
+  {
+    "title": "Forskerne",
+    "text": "Et forskningsinstitutt med 120 ansatte har fått ny direktør. Han har innført prosjektstyringssystem og milepælrapportering for hvert forskningsprosjekt. To topp-forskere har gått til universitetet med begrunnelsen \"vi får ikke tid til å tenke lenger\".",
+    "expected": ["Mintzberg", "Hackman & Oldham", "Cherns", "Phronesis", "Korsen", "Holemo & Ingvaldsen"],
+    "diagnosis": "Profesjonelt byråkrati (forskning) tvinges mot maskinbyråkrati (milepæler) — kategorifeil. Forskning er phronesis-arbeid: kontekstuelt, eksplorativt, ikke-lineært. Bureaucratic control kveler den autonomien (Hackman & Oldham) som er produksjonsforutsetningen. Implementeringen brøt kompatibilitetsprinsippet."
+  },
+  {
+    "title": "Apoteket",
+    "text": "Et lokalt apotek på 10 ansatte er kjøpt opp av en stor apotekkjede. Kjeden har innført standardiserte arbeidsinstrukser og produktivitetsmål per time. Etter ett år er omsetningen opp 12 %, men flere lokale fastkunder har gått til nettapotek og to erfarne apotekteknikere har sluttet.",
+    "expected": ["Holemo & Ingvaldsen", "Dombrowski", "Smith & Bititci", "Phronesis", "Schein", "Hackman & Oldham"],
+    "diagnosis": "Lean implementert som verktøykasse uten Lean Leadership (Dombrowski). Standardiseringen erstatter den tause kunderelasjons-kompetansen (phronesis) som var konkurransefortrinnet. Kulturen som var differensieringen, blir borte. Omsetningsøkningen er kortsiktig — kundebasen eroderer."
+  },
+  {
+    "title": "AI-kontrollen",
+    "text": "En produksjonsbedrift skal innføre AI-basert kvalitetskontroll. Hovedtillitsvalgt er invitert til orienteringsmøte uken før implementering. Ledelsen mener \"dette er et teknologisk valg, ikke et arbeidslivspørsmål\".",
+    "expected": ["Finnestrand", "AML", "Cherns", "Holemo & Ingvaldsen", "Fleming"],
+    "diagnosis": "Ledelsens skille mellom \"teknologisk valg\" og \"arbeidslivspørsmål\" er nettopp det norsk modell og AML avviser. Teknologi som påvirker arbeidsmiljøet utløser lov-hjemlet medvirkningsrett — orientering uken før er ikke medvirkning. Kompatibilitetsprinsippet (Cherns 1) er brutt: implementeringsprosessen reflekterer ikke ønsket sluttilstand."
+  },
+  {
+    "title": "Designerne",
+    "text": "En produktavdeling har fått ny leder fra konsulentbransjen. Han har innført detaljerte prosessbeskrivelser, daglige standup-møter, og strenge produktroadmaps. De seniore designerne klager over at \"kreativiteten dør\" og at de \"blir kontrollert som om vi var nybegynnere\".",
+    "expected": ["Mintzberg", "Hackman & Oldham", "Cherns", "Korsen"],
+    "diagnosis": "Adhokrati (kreativt arbeid) tvinges mot maskinbyråkrati — feil konfigurasjon for oppgavetypen. Mest direkte: ferdighetsvariasjon og autonomi (Hackman & Oldham) degraderes. Det er bureaucratic control der collaborative ville passet bedre. Implementeringen sender et menneskesyn-signal som demotiverer seniore."
+  },
+  {
+    "title": "Elektroinstallatøren",
+    "text": "En elektrobedrift med 4 fagavdelinger leverer både små vedlikeholdsoppdrag og store byggeprosjekter. Vedlikeholdsoppdragene fungerer godt i dagens funksjonelle struktur, men byggeprosjektene har gått 25 % over budsjett siste året. Ledelsen vurderer matriseorganisering for hele bedriften.",
+    "expected": ["Maylor & Turner", "J&V (3.5.4)", "Thompson", "J&V (3.5.6)", "Mintzberg", "Finnestrand"],
+    "diagnosis": "To ulike avhengighetsstrukturer (Thompson) krever ulike løsninger. Vedlikehold er sekvensielt og delt — fungerer i funksjonell struktur. Byggeprosjekter er gjensidig avhengige — krever matrise eller prosjektstruktur. Helhetlig matrise er overkill. Selve strukturvalget skal også drøftes med tillitsvalgte (norsk modell)."
+  }
+]
