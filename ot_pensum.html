@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pensumkart TIØ4102</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<div class="topbar">
+  <div>
+    <h1>Pensumkart for TIØ4102</h1>
+    <div class="sub">Flytt pensum og kategorier + caseøving</div>
+  </div>
+  <div class="actions">
+    <span class="save-status" id="save-status"></span>
+    <button onclick="resetToDefault()">Tilbakestill til default</button>
+    <button class="primary" onclick="exportHtml()">Last ned redigert versjon</button>
+  </div>
+</div>
+
+<div class="hint">
+  <strong>Slik bruker du kartet:</strong> Dra kolonneoverskriften (med ⋮⋮-ikonet) for å bytte rekkefølge på kolonner. Dra et pensumkort fra kanten for å flytte den innad i eller mellom kolonner. Klikk i en hvilken som helst tekst for å redigere. Hold over et kort for å se slett-knappen.
+</div>
+
+<div id="content">
+
+<section>
+  <h2>Alltid relevante</h2>
+  <p class="section-sub">Universelt relevant: bør sjekkes på hver case</p>
+  <div class="row3" id="always-row">
+    <div class="always-card">
+      <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+      <div class="name" contenteditable="true">Mintzberg</div>
+      <div class="desc" contenteditable="true">Fem konfigurasjoner (simple structure, maskinbyråkrati, profesjonelt byråkrati, divisjonalisert, adhokrati). Sju koordineringsmekanismer fra gjensidig tilpasning til standardisering av normer. Organisasjonens fem deler: strategisk apex, mellomledelse, teknostruktur, støttefunksjon, operativ kjerne.</div>
+    </div>
+    <div class="always-card">
+      <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+      <div class="name" contenteditable="true">Finnestrand / norsk modell</div>
+      <div class="desc" contenteditable="true">Trippel begrunnelse for medvirkning: demokratisk (lov-hjemlet), motivasjonsfremmende, kunnskapsmessig produktiv. Partssamarbeid og hovedavtalen LO–NHO. Boksing (forhandling om fordeling) versus dansing (felles utvikling av løsninger). Finnestrand 2015, 2023.</div>
+    </div>
+    <div class="always-card">
+      <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+      <div class="name" contenteditable="true">Jacobsen &amp; Vabo (kap 3)</div>
+      <div class="desc" contenteditable="true">To former for avhengighet: arbeidsprosesser og felles ressursutnyttelse. Fire grunnleggende koordineringsmåter: arbeidsdeling, standardisering av atferd, tverrgående forbindelser, frivillig samarbeid. Kultur som koordineringsmekanisme.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Case-arketyper</h2>
+  <p class="section-sub">Primær pensum per case-type. Cards med farget venstrekant er krysskoblet med en annen kolonne. Cards med ⚙ er mekanisme-triggere som aktiveres betingelsesvis.</p>
+
+  <div class="columns-wrapper" id="columns">
+
+    <div class="column">
+      <div class="col-header h-ai">
+        <div class="title" contenteditable="true">AI / Teknologi</div>
+        <div class="sub" contenteditable="true">automatisering, profesjon</div>
+      </div>
+      <div class="cards-container">
+        <div class="card cross-lean">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Holemo &amp; Ingvaldsen 2021 <span class="pill">↘ Lean</span></div>
+          <div class="desc" contenteditable="true">Med eller mot menneskene? Støttende vs. erstattende teknologi. Demokratisering av data: hvem ser, tolker, og handler på dataene. Norsk modell møter digitalisering — implementeringsmåten avgjør om teknologien blir overvåking eller selvstyringsverktøy.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Fleming 2019</div>
+          <div class="desc" contenteditable="true">Bounded automation: organisatoriske krefter begrenser hvor langt automatisering faktisk går. Menneskelig dømmekraft og ansvarsbærende rolle kan ikke fullautomatiseres. Ansvar/myndighet-paradokset oppstår når AI får formell status uten å kunne bære ansvaret.</div>
+        </div>
+        <div class="card cross-lean">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Cherns (1, 6, 9) <span class="pill">↘ Lean</span></div>
+          <div class="desc" contenteditable="true">Kompatibilitetsprinsippet (overgangsprosessen må reflektere ønsket sluttilstand). Makt og autoritet (de som har ansvar må ha tilstrekkelig myndighet). Overgangsorganisasjonen som selv må være deltakende.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Phronesis / techne</div>
+          <div class="desc" contenteditable="true">Aristoteles' skille: phronesis er praktisk klokskap — kontekstuell, taus, erfaringsbasert. Techne er kodifisert prosedyrekunnskap. AI fanger techne, ikke phronesis. Devaluering av phronesis er en forutsigbar konsekvens av algoritmisk autoritet.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">AML / AMU</div>
+          <div class="desc" contenteditable="true">Arbeidsmiljøloven og arbeidsmiljøutvalget: lov-hjemlet medvirkning ved teknologiendring som påvirker arbeidsmiljøet. Realiserer den demokratiske dimensjonen i Finnestrands trippel begrunnelse — medvirkning er ikke bare ønskelig, den er rettslig pålagt.</div>
+        </div>
+        <div class="card mech">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Hackman &amp; Oldham</div>
+          <div class="desc" contenteditable="true">MPS-formel multipliserer autonomi og tilbakemelding med kjerneoppgavedimensjonene. Når en av disse går mot null, kollapser motivasjonspotensialet uavhengig av de andre faktorene.</div>
+          <div class="trigger" contenteditable="true">Aktiveres når AI direkte endrer jobbkarakteristikker — særlig autonomi (radiologen begrunner avvik) eller ferdighetsvariasjon.</div>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard(this)">+ Legg til card</button>
+    </div>
+
+    <div class="column">
+      <div class="col-header h-struct">
+        <div class="title" contenteditable="true">Strukturskalering</div>
+        <div class="sub" contenteditable="true">vekst, omorganisering</div>
+      </div>
+      <div class="cards-container">
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Jacobsen &amp; Vabo (kap 3)</div>
+          <div class="desc" contenteditable="true">Horisontal og vertikal arbeidsdeling som grunnleggende koordineringsverktøy. Integratorroller, koordinatorenheter, faste møter. Hvilke avdelinger skal organisasjonen deles inn i, og hvordan endres dette ved skalering?</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Mintzberg-overgang</div>
+          <div class="desc" contenteditable="true">Konfigurasjonsovergang ved vekst: simple structure / entrepreneurial → adhokrati eller profesjonelt byråkrati. Hvilken konfigurasjon krever oppgavetypen, og hvilken har bedriften vokst seg ut av?</div>
+        </div>
+        <div class="card cross-kultur">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Schein <span class="pill">↘ Kultur</span></div>
+          <div class="desc" contenteditable="true">Aktiveres når kulturen var den implisitte koordineringsmekanismen som svikter ved vekst. På NordTeknikk-typen: "vi har mistet det som gjorde oss spesielle" er en kulturobservasjon i Schein-format.</div>
+        </div>
+        <div class="card cross-kultur">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">J&amp;V (3.6.1) <span class="pill">↘ Kultur</span></div>
+          <div class="desc" contenteditable="true">Subkulturer ved differensiering, særlig ved skalering. Fire-fem nye fagmiljøer som ikke er sosialisert inn i den opprinnelige kulturen produserer "vi mot dem"-dynamikk og koordineringssvikt på tvers.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Weber (kontrast)</div>
+          <div class="desc" contenteditable="true">Det Weberianske byråkratiet som retorisk motpol — for å nyansere ledelsens "byråkratisk gigant"-frykt. Moderat formalisering ved skalering er ikke det samme som Weberiansk byråkrati. Vis at byråkrati ikke er et binært valg.</div>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard(this)">+ Legg til card</button>
+    </div>
+
+    <div class="column">
+      <div class="col-header h-kultur">
+        <div class="title" contenteditable="true">Kultur / fusjon</div>
+        <div class="sub" contenteditable="true">identitet, subkultur</div>
+      </div>
+      <div class="cards-container">
+        <div class="card cross-struct">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Schein <span class="pill">↘ Struktur</span></div>
+          <div class="desc" contenteditable="true">Tre lag: artefakter (synlige men vanskelige å tyde), uttalte verdier og normer, grunnleggende antagelser (lag 3, ofte ubevisste). Lag 3 endres ikke ved dekret — det krever delt problemløsning over tid.</div>
+        </div>
+        <div class="card cross-struct">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">J&amp;V (3.6.1) <span class="pill">↘ Struktur</span></div>
+          <div class="desc" contenteditable="true">Subkulturer som naturlige resultater av differensiering. Silotenking, avdelingsegoisme, suboptimalisering. Hvordan bygges felles kultur?</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Forelesning Finnestrand (kultur)</div>
+          <div class="desc" contenteditable="true">De tre funksjonene kultur har: (1) retningsgivende — gir handlingsmodeller; (2) integrerende — identitet, lojalitet, fellesskap; (3) usikkerhetsreduserende — tilfører implisitte regler. Definisjoner: Schein (akademisk presis), Deal &amp; Kennedy ("måten vi gjør ting på her hos oss").</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">J&amp;V (3.6.2)</div>
+          <div class="desc" contenteditable="true">Sosialisering av nye medlemmer: rekrutteringsstrategi, strukturert onboarding, indoktrinering av ønskede verdier og normer. Felles utdanning som koordineringsmekanisme. Det operative verktøyet for å bygge kultur i nye eller sammensmeltede organisasjoner.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Mintzbergs std. av normer</div>
+          <div class="desc" contenteditable="true">Standardisering av normer som koordineringsmekanisme på linje med standardisering av prosesser, output og ferdigheter. Sterk kultur som "trosfellesskap" reduserer behovet for formelle styringsmekanismer (Mintzberg 1983: misjonsorganisasjoner).</div>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard(this)">+ Legg til card</button>
+    </div>
+
+    <div class="column">
+      <div class="col-header h-lean">
+        <div class="title" contenteditable="true">Lean / PM</div>
+        <div class="sub" contenteditable="true">måling, kontroll</div>
+      </div>
+      <div class="cards-container">
+        <div class="card cross-ai">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Holemo &amp; Ingvaldsen 2021 <span class="pill">↘ AI</span></div>
+          <div class="desc" contenteditable="true">Lean i norsk arbeidslivskontekst. Demokratisering av data muliggjør medvirkende lean. Implementering avgjør om lean blir empowerment eller kontroll. Den faglige debatten: kan lean kombineres med norsk medvirkningstradisjon, eller undergraver det medvirkningen?</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Dombrowski 2017</div>
+          <div class="desc" contenteditable="true">Lean Enterprise som helhetlig system, ikke bare verktøykasse. Lean Leadership: lean krever en ny ledelsesform som utvikler ansatte og bygger en learning organization. Implementering uten ledelsesdimensjon er en kjent feilmønster.</div>
+        </div>
+        <div class="card cross-ai">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Cherns <span class="pill">↘ AI</span></div>
+          <div class="desc" contenteditable="true">Joint optimisation som kjerneprinsipp: ikke optimalisere det tekniske systemet på bekostning av det sosiale. Variasjonskontroll: håndtere avvik ved kilden. Kompatibilitetsprinsippet på selve PM-design-prosessen.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Smith &amp; Bititci</div>
+          <div class="desc" contenteditable="true">Firekvadrant: teknisk kontroll (måling, dashboards, KPI-er) versus sosial kontroll (hvordan målingene faktisk brukes). Command/control versus empowerment. Det er først interaksjonen mellom dimensjonene som skaper engasjement og prestasjon.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Korsen, Holmemo &amp; Ingvaldsen 2022</div>
+          <div class="desc" contenteditable="true">Bureaucratic versus collaborative control i digital PM. Samme dashboards kan brukes som overvåking ovenfra eller som selvstyringsverktøy nedenfra. Forskjellen ligger i hvem som ser data, hvem som tolker, og hvem som handler.</div>
+        </div>
+        <div class="card mech">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Hackman &amp; Oldham</div>
+          <div class="desc" contenteditable="true">Jobbkarakteristikkmodellen forklarer hvorfor PM som standardiserer prosesser, fjerner autonomi, eller individualiserer måling degraderer motivasjonspotensialet selv om indikatorene er presise.</div>
+          <div class="trigger" contenteditable="true">Aktiveres når PM-systemet direkte endrer jobbkarakteristikker (Sjøkraft-typen og Nordvik-typen).</div>
+        </div>
+        <div class="card mech">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Goodhart / Hertzberg / Heisenberg</div>
+          <div class="desc" contenteditable="true">Tre relaterte målefelle-effekter. Goodhart: når et mål blir et mål i seg selv, slutter det å være et godt mål. Hertzberg: målbare oppgaver prioriteres på bekostning av ikke-målbare. Heisenberg: selve det å måle endrer atferden som måles.</div>
+          <div class="trigger" contenteditable="true">Aktiveres når et målesystem skaper atferdsvridning, gaming, eller selvsensur. Sentralt for "presisjonssystem reduserer presisjon"-paradokset.</div>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard(this)">+ Legg til card</button>
+    </div>
+
+    <div class="column">
+      <div class="col-header h-prosj">
+        <div class="title" contenteditable="true">Prosjekt</div>
+        <div class="sub" contenteditable="true">matrise, koordinering</div>
+      </div>
+      <div class="cards-container">
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Maylor &amp; Turner (kap 3–4)</div>
+          <div class="desc" contenteditable="true">Funksjonell, prosjekt- og matriseorganisering med fordeler og ulemper. Ansvar/myndighet-spenning som er innebygd i matrisemodellen. Spilleregler for å håndtere flerleder-situasjon: prosjektkontrakter, ressursavtaler, toveis-rapportering.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">J&amp;V (3.5.4)</div>
+          <div class="desc" contenteditable="true">Matriseorganisasjon: ansatt forholder seg til minst to ledere med ulikt oppgaveansvar men samme hierarkiske autoritet. Aktualiseres når prosjekter blir stabile over tid (Galbraith 2009, 2012).</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Thompson-typologi</div>
+          <div class="desc" contenteditable="true">Tre former for oppgaveavhengighet: delt (pooled) — felles ressurs; sekvensiell — A leverer til B; gjensidig (resiprokal) — fram og tilbake. Avhengighetstypen bestemmer hvilken koordineringsmekanisme og organisasjonsform som passer.</div>
+        </div>
+        <div class="card">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">J&amp;V (3.5.6)</div>
+          <div class="desc" contenteditable="true">Horisontal samordning som strukturell infrastruktur for samarbeid: integratorposisjoner (koordinator uten beslutningsmyndighet), koordinatorenheter, formelle grupper, rotasjon av personale, fysisk samlokalisering, IT-nettverk.</div>
+        </div>
+        <div class="card mech">
+          <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+          <div class="name" contenteditable="true">Karasek</div>
+          <div class="desc" contenteditable="true">Job strain-konstellasjon: høye krav (flere ledere som krever full prioritet) kombinert med lav kontroll (kan ikke selv prioritere mellom prosjekter) produserer overbelastning og turnover.</div>
+          <div class="trigger" contenteditable="true">Aktiveres ved overlast og myndighetstap — klassisk i prosjektkaos hvor ingeniører jobber på 4–6 prosjekter samtidig.</div>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard(this)">+ Legg til card</button>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Vanligvis ute av scope</h2>
+  <p class="section-sub">Feil skala eller kun retorisk kontrast: ikke aktiver som primær uten begrunnelse</p>
+  <div class="row2" id="skip-row">
+    <div class="skip-card">
+      <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+      <div class="name" contenteditable="true">Levin &amp; Rolfsen / MRPI</div>
+      <div class="desc" contenteditable="true">Pensum spesifikt for øving 1 (teamarbeid). MRPI-modellen (mål, roller, prosedyrer, interpersonlige spørsmål) er for små grupper som skal samarbeide om en konkret oppgave — ikke et organisasjonsstrukturrammeverk for en bedrift på 100+ ansatte. Bruk kun ved teaminternt-skala.</div>
+    </div>
+    <div class="skip-card">
+      <button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>
+      <div class="name" contenteditable="true">Weber / Taylor / Mayo / Ford</div>
+      <div class="desc" contenteditable="true">Klassiske organisasjonsteorier brukes som retorisk kontrast eller når caset eksplisitt etterspør historisk drøfting (f.eks. "drøft Performance Management i lys av taylorisme"). Aldri som hovedanker på samtidscase med mindre oppgaven eksplisitt ber om det.</div>
+    </div>
+  </div>
+</section>
+
+<section class="legend">
+  <div class="legend-title">Krysskoblinger — venstrekant viser hvilken annen kolonne kilden også er aktiv i</div>
+  <div class="legend-row">
+    <div class="legend-item"><span class="legend-bar" style="background: #1d9e75;"></span>til AI / Teknologi</div>
+    <div class="legend-item"><span class="legend-bar" style="background: #7f77dd;"></span>til Strukturskalering</div>
+    <div class="legend-item"><span class="legend-bar" style="background: #ba7517;"></span>til Kultur / fusjon</div>
+    <div class="legend-item"><span class="legend-bar" style="background: #d85a30;"></span>til Lean / PM</div>
+  </div>
+  <div class="legend-title" style="margin-top: 14px;">Mekanisme-triggere</div>
+  <div class="legend-row">
+    <div class="legend-item">⚙ Markerte cards aktiveres betingelsesvis, altså ikke i alle case innen den gitte kategorien. Kun når selve mekanismen faktisk er i caset, ikke ut fra symptom alene.</div>
+  </div>
+</section>
+
+</div>
+
+<section id="exercise-section">
+  <h2>Diagnose-øvelse</h2>
+  <p class="section-sub">Korte cases der det som vises på overflaten ikke nødvendigvis er kjernediagnose og pensum. Kryss av pensumkilder du ville aktivert, og sjekk hva som faktisk treffer.</p>
+
+  <div class="exercise-box">
+    <div class="exercise-nav">
+      <button class="nav-btn" onclick="prevCase()" title="Forrige">←</button>
+      <select id="case-select" onchange="loadExerciseCase(parseInt(this.value))"></select>
+      <button class="nav-btn" onclick="nextCase()" title="Neste">→</button>
+      <span class="case-counter" id="case-counter"></span>
+    </div>
+
+    <div class="case-display">
+      <h3 id="case-title"></h3>
+      <p id="case-text"></p>
+    </div>
+
+    <div class="checklist-grid" id="pensum-checklist"></div>
+
+    <div class="exercise-actions">
+      <button class="primary" onclick="checkExerciseAnswers()">Sjekk svar</button>
+      <button onclick="resetExerciseCheckboxes()">Tilbakestill avkryssing</button>
+    </div>
+
+    <div class="feedback-box" id="exercise-feedback"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  var STORAGE_KEY = 'pensumkart_tio4102_state_v2';
+  var saveStatusEl = document.getElementById('save-status');
+  var contentEl = document.getElementById('content');
+  var saveTimer = null;
+
+  function showSaveStatus(text) {
+    saveStatusEl.textContent = text;
+    if (text) {
+      setTimeout(function() {
+        if (saveStatusEl.textContent === text) saveStatusEl.textContent = '';
+      }, 1800);
+    }
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, contentEl.innerHTML);
+      showSaveStatus('Lagret');
+    } catch (e) {
+      showSaveStatus('Lagring feilet');
+    }
+  }
+
+  function debouncedSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveState, 400);
+  }
+
+  function loadState() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      contentEl.innerHTML = saved;
+    }
+  }
+
+  function initSortable() {
+    var columnsEl = document.getElementById('columns');
+    if (columnsEl) {
+      Sortable.create(columnsEl, {
+        animation: 150,
+        handle: '.col-header',
+        filter: '[contenteditable="true"], .delete-btn',
+        preventOnFilter: false,
+        draggable: '.column',
+        onEnd: saveState
+      });
+    }
+    document.querySelectorAll('.cards-container').forEach(function(container) {
+      Sortable.create(container, {
+        group: 'cards',
+        animation: 150,
+        filter: '[contenteditable="true"], .delete-btn',
+        preventOnFilter: false,
+        onEnd: saveState
+      });
+    });
+    var alwaysRow = document.getElementById('always-row');
+    if (alwaysRow) {
+      Sortable.create(alwaysRow, {
+        animation: 150,
+        filter: '[contenteditable="true"], .delete-btn',
+        preventOnFilter: false,
+        draggable: '.always-card',
+        onEnd: saveState
+      });
+    }
+    var skipRow = document.getElementById('skip-row');
+    if (skipRow) {
+      Sortable.create(skipRow, {
+        animation: 150,
+        filter: '[contenteditable="true"], .delete-btn',
+        preventOnFilter: false,
+        draggable: '.skip-card',
+        onEnd: saveState
+      });
+    }
+  }
+
+  function deleteCard(btn) {
+    if (confirm('Slett denne carden?')) {
+      var card = btn.closest('.card, .always-card, .skip-card');
+      if (card) {
+        card.remove();
+        saveState();
+      }
+    }
+  }
+
+  function addCard(btn) {
+    var container = btn.previousElementSibling;
+    if (!container || !container.classList.contains('cards-container')) return;
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML =
+      '<button class="delete-btn" onclick="deleteCard(this)" title="Slett">×</button>' +
+      '<div class="name" contenteditable="true">Ny pensumtekst</div>' +
+      '<div class="desc" contenteditable="true">Klikk for å redigere beskrivelse...</div>';
+    container.appendChild(card);
+    var nameEl = card.querySelector('.name');
+    nameEl.focus();
+    document.execCommand('selectAll', false, null);
+    saveState();
+  }
+
+  function resetToDefault() {
+    if (confirm('Tilbakestille alt til original? Dine endringer vil bli slettet.')) {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+  }
+
+  function exportHtml() {
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('script').forEach(function(s) { s.remove(); });
+    clone.querySelectorAll('.delete-btn, .add-card-btn, .topbar .actions, .hint').forEach(function(el) { el.remove(); });
+    clone.querySelectorAll('[contenteditable]').forEach(function(el) { el.removeAttribute('contenteditable'); });
+    var topbar = clone.querySelector('.topbar');
+    if (topbar) {
+      var sub = topbar.querySelector('.sub');
+      if (sub) sub.textContent = 'Organisert etter case-arketyper og deres primære pensum';
+    }
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html], { type: 'text/html' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'pensumkart_redigert.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  document.addEventListener('input', function(e) {
+    if (e.target.isContentEditable) debouncedSave();
+  });
+
+  var exerciseCases = [
+    {
+      title: "Sjefen som ville rydde opp",
+      text: "En entreprenørbedrift på 80 ansatte har fått ny COO fra et stort konsern. Hun har innført ukentlige rapporteringsmøter og formelle prosessbeskrivelser. Tre av seks teamledere har sagt opp på tre måneder, og de gjenværende sier \"det tar dobbelt så lang tid å få noe gjort nå\".",
+      expected: ["Mintzberg", "Jacobsen & Vabo", "Schein", "Hackman & Oldham", "Cherns"],
+      diagnosis: "Konfigurasjonsovergang fra simple structure mot byråkrati ved skalering — men formaliseringen er tredd ned over hodet på en organisasjon hvor den uformelle kulturen var koordineringsmekanismen. Autonomien teamlederne hadde, blir degradert (jobbkarakteristikker svekkes). Selve omstruktureringen burde fulgt kompatibilitetsprinsippet (deltakende prosess)."
+    },
+    {
+      title: "Pakkesentralen",
+      text: "En logistikksentral har innført sanntids-tracking av antall pakker per ansatt. Produktiviteten er opp 8 %. Sykefraværet er stabilt. Men kundeklager om feilsendte pakker er opp 15 %, og fire av de mest erfarne lagerarbeiderne har sluttet.",
+      expected: ["Smith & Bititci", "Goodhart", "Korsen", "Holemo & Ingvaldsen", "Hackman & Oldham"],
+      diagnosis: "Klassisk Goodhart-mønster: når tellbar pakkemengde blir det målet som styrer atferd, kommer kvaliteten under press. Målesystemet er bureaucratic control (Korsen), ikke collaborative. Det signaliserer mistillit, fragmenterer arbeidet og degraderer jobbkarakteristikkene som drev erfaringsbasert kvalitetsarbeid."
+    },
+    {
+      title: "Reklamebyrået",
+      text: "Et reklamebyrå med 60 ansatte har 15 samtidige kundeprosjekter. Kreatørene jobber typisk på 3-4 prosjekter parallelt. To senior-kreatører har sluttet, kvaliteten varierer, og en stor kunde har gått til konkurrenten.",
+      expected: ["Maylor & Turner", "J&V (3.5.4)", "Thompson", "J&V (3.5.6)", "Karasek"],
+      diagnosis: "Prosjektkaos i matriseaktig struktur uten tydelige spilleregler. Innen et kreativt prosjekt er avhengigheten gjensidig (resiprokal — Thompson), mellom prosjekter er det delt ressursutnyttelse. Dagens hybrid håndterer ingen av dem godt. Kreatørene står i job strain (Karasek): høye krav fra mange ledere, lav kontroll over egen prioritering."
+    },
+    {
+      title: "Skolesammenslåingen",
+      text: "To naboskoler er fusjonert. Etter ni måneder er det fortsatt to leirer i kollegiet — alle vet hvilket lunsjbord som tilhører \"gamle Bjørka\" og hvilket som tilhører \"gamle Lindeskolen\". Rektor har innført fellesmøter hver fredag og felles e-postliste. To lærere har søkt seg vekk.",
+      expected: ["Schein", "J&V (3.6.1)", "J&V (3.6.2)", "Forelesning Finnestrand", "Mintzbergs std. av normer"],
+      diagnosis: "Rektors tiltak (fellesmøter, e-postliste) er lag 1- og lag 2-grep som ikke når lag 3 (grunnleggende antagelser). Subkulturer er institusjonalisert — \"vi\" og \"dem\" er stabilisert. Kultur bygges ikke ved dekret, men gjennom delt problemløsning og strukturert sosialisering over tid."
+    },
+    {
+      title: "Hjemmehjelpsruten",
+      text: "En kommunes hjemmehjelpstjeneste har innført AI-basert ruteoptimalisering. Total kjøretid er ned 18 %. Men de ansatte sier \"vi har ikke tid til å snakke med brukerne lenger\", klager fra pårørende har økt, og to ansatte har sluttet med begrunnelsen \"det er ikke det jeg utdannet meg til\".",
+      expected: ["Phronesis", "Holemo & Ingvaldsen", "Fleming", "Cherns", "Goodhart", "Hackman & Oldham"],
+      diagnosis: "Optimalisering av techne (kjøretid, ruteberegning) på bekostning av phronesis (kontekstuell omsorgsklokskap). Klassisk brudd på joint optimisation: det tekniske systemet er optimalisert, det sosiale er degradert. Goodhart i praksis — kjøretid måles, omsorgsrelasjon ikke. AI er erstattende, ikke støttende, fordi den fortrenger phronesis."
+    },
+    {
+      title: "Forskerne",
+      text: "Et forskningsinstitutt med 120 ansatte har fått ny direktør. Han har innført prosjektstyringssystem og milepælrapportering for hvert forskningsprosjekt. To topp-forskere har gått til universitetet med begrunnelsen \"vi får ikke tid til å tenke lenger\".",
+      expected: ["Mintzberg", "Hackman & Oldham", "Cherns", "Phronesis", "Korsen", "Holemo & Ingvaldsen"],
+      diagnosis: "Profesjonelt byråkrati (forskning) tvinges mot maskinbyråkrati (milepæler) — kategorifeil. Forskning er phronesis-arbeid: kontekstuelt, eksplorativt, ikke-lineært. Bureaucratic control kveler den autonomien (Hackman & Oldham) som er produksjonsforutsetningen. Implementeringen brøt kompatibilitetsprinsippet."
+    },
+    {
+      title: "Apoteket",
+      text: "Et lokalt apotek på 10 ansatte er kjøpt opp av en stor apotekkjede. Kjeden har innført standardiserte arbeidsinstrukser og produktivitetsmål per time. Etter ett år er omsetningen opp 12 %, men flere lokale fastkunder har gått til nettapotek og to erfarne apotekteknikere har sluttet.",
+      expected: ["Holemo & Ingvaldsen", "Dombrowski", "Smith & Bititci", "Phronesis", "Schein", "Hackman & Oldham"],
+      diagnosis: "Lean implementert som verktøykasse uten Lean Leadership (Dombrowski). Standardiseringen erstatter den tause kunderelasjons-kompetansen (phronesis) som var konkurransefortrinnet. Kulturen som var differensieringen, blir borte. Omsetningsøkningen er kortsiktig — kundebasen eroderer."
+    },
+    {
+      title: "AI-kontrollen",
+      text: "En produksjonsbedrift skal innføre AI-basert kvalitetskontroll. Hovedtillitsvalgt er invitert til orienteringsmøte uken før implementering. Ledelsen mener \"dette er et teknologisk valg, ikke et arbeidslivspørsmål\".",
+      expected: ["Finnestrand", "AML", "Cherns", "Holemo & Ingvaldsen", "Fleming"],
+      diagnosis: "Ledelsens skille mellom \"teknologisk valg\" og \"arbeidslivspørsmål\" er nettopp det norsk modell og AML avviser. Teknologi som påvirker arbeidsmiljøet utløser lov-hjemlet medvirkningsrett — orientering uken før er ikke medvirkning. Kompatibilitetsprinsippet (Cherns 1) er brutt: implementeringsprosessen reflekterer ikke ønsket sluttilstand."
+    },
+    {
+      title: "Designerne",
+      text: "En produktavdeling har fått ny leder fra konsulentbransjen. Han har innført detaljerte prosessbeskrivelser, daglige standup-møter, og strenge produktroadmaps. De seniore designerne klager over at \"kreativiteten dør\" og at de \"blir kontrollert som om vi var nybegynnere\".",
+      expected: ["Mintzberg", "Hackman & Oldham", "Cherns", "Korsen"],
+      diagnosis: "Adhokrati (kreativt arbeid) tvinges mot maskinbyråkrati — feil konfigurasjon for oppgavetypen. Mest direkte: ferdighetsvariasjon og autonomi (Hackman & Oldham) degraderes. Det er bureaucratic control der collaborative ville passet bedre. Implementeringen sender et menneskesyn-signal som demotiverer seniore."
+    },
+    {
+      title: "Elektroinstallatøren",
+      text: "En elektrobedrift med 4 fagavdelinger leverer både små vedlikeholdsoppdrag og store byggeprosjekter. Vedlikeholdsoppdragene fungerer godt i dagens funksjonelle struktur, men byggeprosjektene har gått 25 % over budsjett siste året. Ledelsen vurderer matriseorganisering for hele bedriften.",
+      expected: ["Maylor & Turner", "J&V (3.5.4)", "Thompson", "J&V (3.5.6)", "Mintzberg", "Finnestrand"],
+      diagnosis: "To ulike avhengighetsstrukturer (Thompson) krever ulike løsninger. Vedlikehold er sekvensielt og delt — fungerer i funksjonell struktur. Byggeprosjekter er gjensidig avhengige — krever matrise eller prosjektstruktur. Helhetlig matrise er overkill. Selve strukturvalget skal også drøftes med tillitsvalgte (norsk modell)."
+    }
+  ];
+
+  var currentCaseIndex = 0;
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function normalizeText(s) {
+    return s.toLowerCase().replace(/[^a-z0-9æøå]/gi, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function getCardName(cardEl) {
+    var nameEl = cardEl.querySelector('.name');
+    if (!nameEl) return '';
+    var clone = nameEl.cloneNode(true);
+    var pill = clone.querySelector('.pill');
+    if (pill) pill.remove();
+    return clone.textContent.trim().replace(/\s+/g, ' ');
+  }
+
+  function rebuildChecklist() {
+    var checklist = document.getElementById('pensum-checklist');
+    if (!checklist) return;
+    checklist.innerHTML = '';
+
+    var groups = [];
+    var alwaysCards = document.querySelectorAll('#always-row .always-card');
+    if (alwaysCards.length) {
+      groups.push({ title: 'Alltid aktive', cards: alwaysCards });
+    }
+
+    var columns = document.querySelectorAll('#columns .column');
+    columns.forEach(function(col) {
+      var titleEl = col.querySelector('.col-header .title');
+      var title = titleEl ? titleEl.textContent.trim() : 'Kolonne';
+      var cards = col.querySelectorAll('.cards-container .card');
+      if (cards.length) {
+        groups.push({ title: title, cards: cards });
+      }
+    });
+
+    groups.forEach(function(group) {
+      var col = document.createElement('div');
+      col.className = 'checklist-col';
+      var heading = document.createElement('h4');
+      heading.textContent = group.title;
+      col.appendChild(heading);
+
+      group.cards.forEach(function(card) {
+        var name = getCardName(card);
+        if (!name) return;
+        var label = document.createElement('label');
+        label.className = 'checklist-item';
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.dataset.name = name;
+        var span = document.createElement('span');
+        span.textContent = name;
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        col.appendChild(label);
+      });
+      checklist.appendChild(col);
+    });
+  }
+
+  function loadExerciseCase(index) {
+    if (index < 0) index = exerciseCases.length - 1;
+    if (index >= exerciseCases.length) index = 0;
+    currentCaseIndex = index;
+    var c = exerciseCases[index];
+    document.getElementById('case-title').textContent = (index + 1) + '. ' + c.title;
+    document.getElementById('case-text').textContent = c.text;
+    document.getElementById('case-counter').textContent = (index + 1) + ' / ' + exerciseCases.length;
+    document.getElementById('case-select').value = index;
+    rebuildChecklist();
+    document.getElementById('exercise-feedback').innerHTML = '';
+  }
+
+  function populateCaseSelect() {
+    var select = document.getElementById('case-select');
+    if (!select) return;
+    select.innerHTML = '';
+    exerciseCases.forEach(function(c, i) {
+      var option = document.createElement('option');
+      option.value = i;
+      option.textContent = (i + 1) + '. ' + c.title;
+      select.appendChild(option);
+    });
+  }
+
+  function checkExerciseAnswers() {
+    var checkboxes = document.querySelectorAll('#pensum-checklist .checklist-item input');
+    var expected = exerciseCases[currentCaseIndex].expected;
+    var diagnosis = exerciseCases[currentCaseIndex].diagnosis;
+
+    var correctCount = 0;
+    var wrongCount = 0;
+    var missedCount = 0;
+    var totalExpected = 0;
+
+    var matchedExpected = {};
+    expected.forEach(function(exp) { matchedExpected[exp] = false; });
+
+    checkboxes.forEach(function(cb) {
+      var item = cb.parentElement;
+      var name = cb.dataset.name || '';
+      var isChecked = cb.checked;
+      var normName = normalizeText(name);
+      var isExpected = false;
+
+      expected.forEach(function(exp) {
+        if (normName.indexOf(normalizeText(exp)) !== -1) {
+          isExpected = true;
+          matchedExpected[exp] = true;
+        }
+      });
+
+      item.classList.remove('correct', 'wrong', 'missed');
+
+      if (isChecked && isExpected) {
+        item.classList.add('correct');
+        correctCount++;
+      } else if (isChecked && !isExpected) {
+        item.classList.add('wrong');
+        wrongCount++;
+      } else if (!isChecked && isExpected) {
+        item.classList.add('missed');
+        missedCount++;
+      }
+    });
+
+    Object.keys(matchedExpected).forEach(function(exp) {
+      if (matchedExpected[exp]) totalExpected++;
+    });
+    totalExpected += Object.keys(matchedExpected).filter(function(k) { return !matchedExpected[k]; }).length;
+
+    var feedback = document.getElementById('exercise-feedback');
+    var summary = '<div class="feedback-summary"><strong>Du traff ' + correctCount + ' av ' + (correctCount + missedCount) + ' kjernekilder.</strong>';
+    if (wrongCount > 0) summary += ' ' + wrongCount + ' av valgene er ikke kjernepensum for dette caset (rødt).';
+    if (missedCount > 0) summary += ' Manglende kilder er gulmerket.';
+    summary += '</div>';
+
+    if (diagnosis) {
+      summary += '<div class="feedback-diagnosis"><strong>Diagnose:</strong> ' + escapeHtml(diagnosis) + '</div>';
+    }
+
+    feedback.innerHTML = summary;
+  }
+
+  function resetExerciseCheckboxes() {
+    document.querySelectorAll('#pensum-checklist .checklist-item input').forEach(function(cb) {
+      cb.checked = false;
+    });
+    document.querySelectorAll('#pensum-checklist .checklist-item').forEach(function(item) {
+      item.classList.remove('correct', 'wrong', 'missed');
+    });
+    document.getElementById('exercise-feedback').innerHTML = '';
+  }
+
+  function nextCase() { loadExerciseCase(currentCaseIndex + 1); }
+  function prevCase() { loadExerciseCase(currentCaseIndex - 1); }
+
+  loadState();
+  if (typeof Sortable !== 'undefined') {
+    initSortable();
+  } else {
+    showSaveStatus('Drag-bibliotek ikke lastet — sjekk nettforbindelse');
+  }
+
+  populateCaseSelect();
+  loadExerciseCase(0);
+</script>
+
+</body>
+</html>
